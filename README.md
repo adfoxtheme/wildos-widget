@@ -4,6 +4,12 @@ A lightweight desktop widget suite built with **Python** and **PyQt6**, optimize
 
 The application appears in the desktop environment as **Widget**.
 
+## Screenshots
+
+| Desktop Widgets | Control Panel | Settings |
+|:-:|:-:|:-:|
+| ![Desktop Widgets](assets/screenshots/screenshot-3.png) | ![Control Panel](assets/screenshots/screenshot-1.png) | ![Settings](assets/screenshots/screenshot-2.png) |
+
 ## Features
 - **5 independent, freely draggable desktop widgets with persistent positions:**
   - **Large Clock (`ClockWidget`)**: frosted-glass `SF Pro Rounded` numerals, blinking `:` separator, and localized date display.
