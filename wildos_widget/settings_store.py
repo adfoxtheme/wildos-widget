@@ -112,7 +112,7 @@ class SettingsStore:
             content = (
                 "[Desktop Entry]\n"
                 "Type=Application\n"
-                "Name=WildOS Widget\n"
+                "Name=Widget\n"
                 "Comment=Tự khởi động widget ở khay hệ thống\n"
                 f"Exec={exec_cmd}\n"
                 "Icon=vn.ihoan.WildOSWidget\n"
