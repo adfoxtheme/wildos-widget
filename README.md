@@ -44,3 +44,9 @@ The application appears in the desktop environment as **Widget**.
 ```bash
 QT_QPA_PLATFORM=offscreen python3 test_app.py -v
 ```
+
+## Packaging (.deb)
+```bash
+./build_deb.sh
+```
+

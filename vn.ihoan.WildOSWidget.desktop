@@ -1,10 +1,13 @@
 [Desktop Entry]
 Type=Application
 Name=Widget
+Name[vi]=Widget
 Comment=Desktop widgets (Clock, Weather, System, Lunar Calendar, Rest Reminder)
 Comment[vi]=Bộ widget màn hình (Đồng hồ, Thời tiết, Hệ thống, Âm lịch, Nhắc nghỉ)
-Exec=/home/ihoan/.local/bin/wildos-widget --toggle
+Exec=wildos-widget --toggle
 Icon=vn.ihoan.WildOSWidget
 Terminal=false
 Categories=Utility;
 StartupNotify=false
+Keywords=widget;clock;weather;system;lunar;calendar;
+Keywords[vi]=widget;đồng hồ;thời tiết;hệ thống;âm lịch;
