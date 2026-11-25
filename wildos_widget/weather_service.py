@@ -93,7 +93,7 @@ def _map_openweather_icon(icon_code: str, condition_id: int) -> str:
 
 
 def _http_get_json(url: str, timeout: int = 8) -> dict:
-    req = urllib.request.Request(url, headers={"User-Agent": "TahoeWidgets/1.0"})
+    req = urllib.request.Request(url, headers={"User-Agent": "WildOSWidget/1.0"})
     with urllib.request.urlopen(req, timeout=timeout) as resp:
         return json.loads(resp.read().decode("utf-8"))
 

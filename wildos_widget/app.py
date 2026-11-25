@@ -1,4 +1,4 @@
-"""Điểm khởi chạy Widget (XWayland positioning + Desktop Widgets + System Tray + i18n)."""
+"""Điểm khởi chạy WildOS Widget (XWayland positioning + Desktop Widgets + System Tray + i18n)."""
 
 from __future__ import annotations
 
@@ -17,11 +17,11 @@ from .drawing import (
     load_bundled_fonts,
 )
 from .i18n import resolve_language, tr
-from .main_window import TahoeControlWindow
+from .main_window import WildOSControlWindow
 from .manager import DesktopWidgetManager
 from .settings_store import SettingsStore
 
-SERVER_NAME = "vn.ihoan.TahoeWidgets.ipc"
+SERVER_NAME = "vn.ihoan.WildOSWidget.ipc"
 
 
 def _configure_platform_for_positioning() -> None:
@@ -52,7 +52,7 @@ def main(argv: list[str] | None = None) -> int:
 
     app = QApplication(sys.argv)
     app.setApplicationName("WildOS Widget")
-    app.setDesktopFileName("vn.ihoan.TahoeWidgets")
+    app.setDesktopFileName("vn.ihoan.WildOSWidget")
 
     ipc_cmd = "show"
     if want_toggle_widgets:
@@ -69,8 +69,8 @@ def main(argv: list[str] | None = None) -> int:
     assets_dir = base_dir / "assets"
     load_bundled_fonts(assets_dir / "fonts")
 
-    icon_path = assets_dir / "vn.ihoan.TahoeWidgets.svg"
-    tray_svg_path = assets_dir / "vn.ihoan.TahoeWidgets-symbolic.svg"
+    icon_path = assets_dir / "vn.ihoan.WildOSWidget.svg"
+    tray_svg_path = assets_dir / "vn.ihoan.WildOSWidget-symbolic.svg"
     app_icon = QIcon(str(icon_path)) if icon_path.exists() else QIcon.fromTheme("preferences-desktop-theme")
     app.setWindowIcon(app_icon)
 
@@ -83,7 +83,7 @@ def main(argv: list[str] | None = None) -> int:
     app.setQuitOnLastWindowClosed(not stay_alive_hidden)
 
     manager = DesktopWidgetManager(store, assets_dir)
-    control_win = TahoeControlWindow(store, manager, assets_dir, tray_available or background_mode)
+    control_win = WildOSControlWindow(store, manager, assets_dir, tray_available or background_mode)
 
     manager.open_panel_requested.connect(
         lambda: (control_win.showNormal(), control_win.raise_(), control_win.activateWindow())

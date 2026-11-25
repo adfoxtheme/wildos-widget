@@ -1,4 +1,4 @@
-"""Các hàm vẽ QPainter mô phỏng chính xác phong cách MacTahoe Cairo."""
+"""Các hàm vẽ QPainter theo phong cách kính mờ WildOS Widget."""
 
 from __future__ import annotations
 

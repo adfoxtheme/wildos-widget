@@ -301,7 +301,7 @@ QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {{
 
 
 class ToggleSwitch(QAbstractButton):
-    """Nút gạt viên thuốc mượt mà (phong cách Kirigami / macOS / Wild OS)."""
+    """Nút gạt viên thuốc mượt mà (phong cách Kirigami / WildOS)."""
 
     def __init__(self, accent_hex: str = "#9fd38a", is_dark: bool = True, parent: QWidget | None = None) -> None:
         super().__init__(parent)

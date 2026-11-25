@@ -17,18 +17,18 @@ if str(SCRATCH_DIR) not in sys.path:
 
 from PyQt6.QtWidgets import QApplication
 
-from tahoe_widgets.drawing import build_symbolic_tray_icon
-from tahoe_widgets.i18n import detect_os_language, resolve_language, tr
-from tahoe_widgets.lunar_calc import convert_solar_to_lunar, get_today_lunar
-from tahoe_widgets.main_window import SettingsDialog, TahoeControlWindow
-from tahoe_widgets.manager import DesktopWidgetManager
-from tahoe_widgets.settings_store import SettingsStore
-from tahoe_widgets.snap_engine import Rect, compute_snap
-from tahoe_widgets.snap_overlay import SnapGuideOverlay
-from tahoe_widgets.system_metrics import SystemMetricsReader
+from wildos_widget.drawing import build_symbolic_tray_icon
+from wildos_widget.i18n import detect_os_language, resolve_language, tr
+from wildos_widget.lunar_calc import convert_solar_to_lunar, get_today_lunar
+from wildos_widget.main_window import SettingsDialog, WildOSControlWindow
+from wildos_widget.manager import DesktopWidgetManager
+from wildos_widget.settings_store import SettingsStore
+from wildos_widget.snap_engine import Rect, compute_snap
+from wildos_widget.snap_overlay import SnapGuideOverlay
+from wildos_widget.system_metrics import SystemMetricsReader
 
 
-class TahoeWidgetsTests(unittest.TestCase):
+class WildOSWidgetTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls) -> None:
         cls.app = QApplication.instance() or QApplication(["test"])
@@ -43,7 +43,7 @@ class TahoeWidgetsTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             tmp_path = Path(tmp)
             cfg = tmp_path / "settings.json"
-            auto = tmp_path / "autostart" / "vn.ihoan.TahoeWidgets.desktop"
+            auto = tmp_path / "autostart" / "vn.ihoan.WildOSWidget.desktop"
 
             store = SettingsStore(cfg, auto)
             store.set_position("clock", 123, 456)
@@ -79,7 +79,7 @@ class TahoeWidgetsTests(unittest.TestCase):
             tmp_path = Path(tmp)
             store = SettingsStore(
                 tmp_path / "settings.json",
-                tmp_path / "autostart" / "vn.ihoan.TahoeWidgets.desktop",
+                tmp_path / "autostart" / "vn.ihoan.WildOSWidget.desktop",
             )
             assets_dir = tmp_path / "assets"
             (assets_dir / "weather-icons").mkdir(parents=True)
@@ -107,7 +107,7 @@ class TahoeWidgetsTests(unittest.TestCase):
             self.assertFalse(manager._windows["rest"].isVisible())
 
             # Test hiding all widgets & control panel UI
-            panel = TahoeControlWindow(store, manager, assets_dir, tray_available=True)
+            panel = WildOSControlWindow(store, manager, assets_dir, tray_available=True)
             panel.show()
             manager.toggle_all_visible()
             self.assertFalse(store.settings.widgets_visible)
@@ -139,9 +139,9 @@ class TahoeWidgetsTests(unittest.TestCase):
             panel.close()
 
     def test_symbolic_tray_icon_tinting(self) -> None:
-        svg_path = SCRATCH_DIR / "vn.ihoan.TahoeWidgets-symbolic.svg"
+        svg_path = SCRATCH_DIR / "vn.ihoan.WildOSWidget-symbolic.svg"
         if not svg_path.exists():
-            svg_path = SCRATCH_DIR / "assets" / "vn.ihoan.TahoeWidgets-symbolic.svg"
+            svg_path = SCRATCH_DIR / "assets" / "vn.ihoan.WildOSWidget-symbolic.svg"
         self.assertTrue(svg_path.exists())
         dark_icon = build_symbolic_tray_icon(svg_path, "#eff0f1")
         light_icon = build_symbolic_tray_icon(svg_path, "#232629")
@@ -205,7 +205,7 @@ class TahoeWidgetsTests(unittest.TestCase):
 
             manager = DesktopWidgetManager(store, assets_dir)
             manager.sync_all()
-            panel = TahoeControlWindow(store, manager, assets_dir, tray_available=True)
+            panel = WildOSControlWindow(store, manager, assets_dir, tray_available=True)
             self.assertEqual(panel.windowTitle(), tr("en", "panel_title"))
 
             # Lunar widget must stay Vietnamese even in English mode

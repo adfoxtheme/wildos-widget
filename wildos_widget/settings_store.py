@@ -1,4 +1,4 @@
-"""Quản lý cấu hình JSON và tự khởi động cùng hệ điều hành cho MacTahoe Widgets."""
+"""Quản lý cấu hình JSON và tự khởi động cùng hệ điều hành cho WildOS Widget."""
 
 from __future__ import annotations
 
@@ -48,16 +48,16 @@ class WidgetSettings:
 
 
 class SettingsStore:
-    """Đọc và lưu cấu hình ứng dụng ra ~/.config/tahoe-widgets/settings.json."""
+    """Đọc và lưu cấu hình ứng dụng ra ~/.config/wildos-widget/settings.json."""
 
     def __init__(
         self,
         path: Path | None = None,
         autostart_path: Path | None = None,
     ) -> None:
-        self.path = path or (Path.home() / ".config" / "tahoe-widgets" / "settings.json")
+        self.path = path or (Path.home() / ".config" / "wildos-widget" / "settings.json")
         self.autostart_path = autostart_path or (
-            Path.home() / ".config" / "autostart" / "vn.ihoan.TahoeWidgets.desktop"
+            Path.home() / ".config" / "autostart" / "vn.ihoan.WildOSWidget.desktop"
         )
         self.settings = self.load()
 
@@ -105,8 +105,8 @@ class SettingsStore:
         if widget_id in WIDGET_IDS:
             self.settings.positions[widget_id] = [int(x), int(y)]
 
-    def sync_autostart(self, exec_cmd: str = "/home/ihoan/.local/bin/tahoe-widgets --background") -> None:
-        """Tạo hoặc xóa file ~/.config/autostart/vn.ihoan.TahoeWidgets.desktop."""
+    def sync_autostart(self, exec_cmd: str = "/home/ihoan/.local/bin/wildos-widget --background") -> None:
+        """Tạo hoặc xóa file ~/.config/autostart/vn.ihoan.WildOSWidget.desktop."""
         if self.settings.autostart:
             self.autostart_path.parent.mkdir(parents=True, exist_ok=True)
             content = (
@@ -115,7 +115,7 @@ class SettingsStore:
                 "Name=WildOS Widget\n"
                 "Comment=Tự khởi động widget ở khay hệ thống\n"
                 f"Exec={exec_cmd}\n"
-                "Icon=vn.ihoan.TahoeWidgets\n"
+                "Icon=vn.ihoan.WildOSWidget\n"
                 "Terminal=false\n"
                 "X-GNOME-Autostart-enabled=true\n"
                 "X-KDE-autostart-after=panel\n"

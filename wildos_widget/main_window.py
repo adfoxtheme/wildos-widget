@@ -314,7 +314,7 @@ class SettingsDialog(QDialog):
         settings.autostart = self.chk_autostart.isChecked()
 
 
-class TahoeControlWindow(QMainWindow):
+class WildOSControlWindow(QMainWindow):
     """Bảng điều khiển để kéo từng widget ra màn hình, lưu vị trí và chạy ẩn cùng OS."""
 
     quit_requested = pyqtSignal()
@@ -337,7 +337,7 @@ class TahoeControlWindow(QMainWindow):
         self._rows: dict[str, DraggableWidgetRow] = {}
 
         self.setMinimumWidth(600)
-        icon_file = assets_dir / "vn.ihoan.TahoeWidgets.svg"
+        icon_file = assets_dir / "vn.ihoan.WildOSWidget.svg"
         if icon_file.exists():
             self.setWindowIcon(QIcon(str(icon_file)))
 
