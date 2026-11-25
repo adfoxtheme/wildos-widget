@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=Widget
+Comment=Desktop widgets (Clock, Weather, System, Lunar Calendar, Rest Reminder)
+Comment[vi]=Bộ widget màn hình (Đồng hồ, Thời tiết, Hệ thống, Âm lịch, Nhắc nghỉ)
+Exec=/home/ihoan/Downloads/du-an/tahoe-widgets-app/launch.sh --toggle
+Icon=/home/ihoan/Downloads/du-an/tahoe-widgets-app/assets/vn.ihoan.TahoeWidgets.svg
+Terminal=false
+Categories=Utility;
+StartupNotify=false
