@@ -1,31 +1,40 @@
 # WildOS Widget
 
-Bộ widget màn hình desktop viết bằng **Python + PyQt6**, tối ưu cho **Wild OS / KDE Plasma (XWayland)** và hỗ trợ song ngữ **Tiếng Anh / Tiếng Việt**.
+A lightweight desktop widget suite built with **Python** and **PyQt6**, optimized for **Wild OS / KDE Plasma (XWayland)** with automatic **English / Vietnamese** localization.
 
-## Tính năng
-- **5 widget độc lập kéo thả tự do & tự lưu vị trí:**
-  - **Đồng hồ lớn (`ClockWidget`)**: số kính mờ `SF Pro Rounded`, nhấp nháy dấu `:`, ngày tháng theo ngôn ngữ hệ thống.
-  - **Thời tiết (`WeatherWidget`)**: hỗ trợ OpenWeatherMap API Key hoặc fallback **Open-Meteo** miễn phí kèm bộ icon SVG.
-  - **Hệ thống (`SystemWidget`)**: giám sát CPU (+ nhiệt độ), GPU rời NVIDIA/AMD (nếu có), RAM/Swap, SSD `/` và tốc độ mạng `↓ / ↑`.
-  - **Âm lịch Việt Nam (`LunarWidget`)**: thuật toán Hồ Ngọc Đức (UTC+7), Can Chi năm/tháng/ngày, **luôn hiển thị bằng Tiếng Việt**.
-  - **Nhắc nghỉ (`RestWidget`)**: theo dõi uptime theo chu kỳ 50 phút làm việc / 5 phút nghỉ.
-- **Đường gióng thông minh & Hít từ tính (`Smart Guides`):** tự căn mép, lề viền màn hình (`24 px`) và khoảng cách chuẩn giữa các thẻ (`14 px`) khi kéo; giữ `Shift` để kéo tự do; dùng phím mũi tên để nhích `1 px` (`Shift + mũi tên` để nhích `10 px`).
-- **Chạy ẩn ở khay hệ thống & Khởi động cùng OS:** icon khay đơn sắc tự đổi màu trắng/đen theo Dark/Light theme, hỗ trợ `--background` và `--toggle`.
-- **Song ngữ Anh / Việt:** tự động theo ngôn ngữ hệ điều hành (Tiếng Việt khi OS là `vi_*`, Tiếng Anh cho các ngôn ngữ khác) hoặc chọn trực tiếp trong Cài đặt.
+The application appears in the desktop environment as **Widget**.
 
-## Chạy và cài đặt
+## Features
+- **5 independent, freely draggable desktop widgets with persistent positions:**
+  - **Large Clock (`ClockWidget`)**: frosted-glass `SF Pro Rounded` numerals, blinking `:` separator, and localized date display.
+  - **Weather (`WeatherWidget`)**: supports an optional **OpenWeatherMap** API key or falls back to free **Open-Meteo** forecasts with bundled SVG weather icons.
+  - **System Monitor (`SystemWidget`)**: tracks CPU usage and temperature, discrete NVIDIA/AMD GPU (if available), RAM/Swap, `/` SSD usage, and live network throughput (`↓ / ↑`).
+  - **Vietnamese Lunar Calendar (`LunarWidget`)**: Hồ Ngọc Đức astronomical calculation (UTC+7) with Heavenly Stems & Earthly Branches (*Can Chi*) for year, month, and day (**always displayed in Vietnamese**).
+  - **Rest Reminder (`RestWidget`)**: tracks system uptime in a 50-minute work / 5-minute break cycle.
+- **Smart Alignment Guides & Magnetic Snapping (`Smart Guides`):** aligns widget edges, screen margins (`24 px`), and card spacing (`14 px`) while dragging; hold `Shift` for free placement; use arrow keys to nudge by `1 px` (`Shift + Arrow` for `10 px`).
+- **System Tray & Autostart Support:** adaptive monochrome tray icon for Dark/Light themes with single-instance IPC and `--background`, `--toggle`, and `--toggle-widgets` flags.
+- **Bilingual UI (English / Vietnamese):** automatically uses Vietnamese on `vi_*` locales and English otherwise, or can be configured directly in Settings.
+
+## Requirements
+- Python 3.10+
+- PyQt6
+
+## Usage
 ```bash
-# Chạy trực tiếp
+# Launch control panel & desktop widgets
 ./launch.sh
 
-# Chạy ẩn ở khay hệ thống (dùng cho autostart)
+# Start hidden in the system tray (for autostart)
 ./launch.sh --background
 
-# Bật/tắt bảng điều khiển
+# Toggle the control panel window
 ./launch.sh --toggle
+
+# Toggle desktop widgets visibility
+./launch.sh --toggle-widgets
 ```
 
-## Kiểm thử
+## Testing
 ```bash
 QT_QPA_PLATFORM=offscreen python3 test_app.py -v
 ```
