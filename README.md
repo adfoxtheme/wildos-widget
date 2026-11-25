@@ -1,4 +1,4 @@
-# Widget
+# WildOS Widget
 
 Bộ widget màn hình desktop viết bằng **Python + PyQt6**, tối ưu cho **Wild OS / KDE Plasma (XWayland)** và hỗ trợ song ngữ **Tiếng Anh / Tiếng Việt**.
 

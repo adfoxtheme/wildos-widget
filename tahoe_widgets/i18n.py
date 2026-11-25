@@ -25,10 +25,10 @@ VI_WEEKDAYS_SHORT = ("T2", "T3", "T4", "T5", "T6", "T7", "CN")
 
 STRINGS: dict[str, dict[str, str]] = {
     "vi": {
-        "app_name": "Widget",
-        "panel_title": "Widget — Bảng điều khiển",
+        "app_name": "WildOS Widget",
+        "panel_title": "WildOS Widget — Bảng điều khiển",
         "panel_subtitle": "Kéo từng thẻ widget ra ngoài màn hình hoặc bật công tắc để đặt lên desktop",
-        "settings_title": "Cài đặt Widget",
+        "settings_title": "Cài đặt WildOS Widget",
         "btn_show_all_on": "Đang hiện",
         "btn_show_all_off": "Đang ẩn hết",
         "btn_snap_on": "Căn gióng",
@@ -95,7 +95,7 @@ STRINGS: dict[str, dict[str, str]] = {
         "menu_refresh_weather": "Làm mới thời tiết",
         "menu_settings": "Cài đặt…",
         "menu_quit": "Thoát hẳn",
-        "tray_tip": "Widget — Bấm để ẩn/hiện",
+        "tray_tip": "WildOS Widget — Bấm để ẩn/hiện",
         "tray_toggle_widgets": "Hiện / Ẩn các Widget",
         "tray_toggle_lock": "Khóa / Mở khóa vị trí",
         # Widget internal texts
@@ -118,10 +118,10 @@ STRINGS: dict[str, dict[str, str]] = {
         "rest_work_hint_normal": "Đổi tư thế, chớp mắt và nhìn xa.",
     },
     "en": {
-        "app_name": "Widget",
-        "panel_title": "Widget — Control Panel",
+        "app_name": "WildOS Widget",
+        "panel_title": "WildOS Widget — Control Panel",
         "panel_subtitle": "Drag any widget card onto your screen or toggle switches to place on desktop",
-        "settings_title": "Widget Settings",
+        "settings_title": "WildOS Widget Settings",
         "btn_show_all_on": "Showing",
         "btn_show_all_off": "Hidden",
         "btn_snap_on": "Snap Guides",
@@ -188,7 +188,7 @@ STRINGS: dict[str, dict[str, str]] = {
         "menu_refresh_weather": "Refresh weather",
         "menu_settings": "Settings…",
         "menu_quit": "Quit",
-        "tray_tip": "Widget — Click to show/hide",
+        "tray_tip": "WildOS Widget — Click to show/hide",
         "tray_toggle_widgets": "Show / Hide Widgets",
         "tray_toggle_lock": "Lock / Unlock Positions",
         # Widget internal texts

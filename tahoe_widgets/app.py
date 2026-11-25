@@ -51,7 +51,7 @@ def main(argv: list[str] | None = None) -> int:
     want_toggle_widgets = "--toggle-widgets" in args
 
     app = QApplication(sys.argv)
-    app.setApplicationName("Widget")
+    app.setApplicationName("WildOS Widget")
     app.setDesktopFileName("vn.ihoan.TahoeWidgets")
 
     ipc_cmd = "show"
